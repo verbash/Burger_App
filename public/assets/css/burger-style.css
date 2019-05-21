@@ -1,0 +1,32 @@
+
+@font-face  {
+
+    font-family: snes;
+    src: url('SNES_Italic.ttf');
+
+}
+
+.main-title {
+    font-family: snes;
+    margin-top: -20px;
+    font-size: 90px;
+}
+
+.text-input-dl {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.button-pad-dl {
+    margin-top: 10px;
+
+}
+
+.burger-list {
+    margin: 20px;
+
+}
+/* body {
+ 
+
+} */
