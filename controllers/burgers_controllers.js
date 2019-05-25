@@ -4,30 +4,36 @@ var router = express.Router();
 
 var burgers = require("../models/burger.js");
 
-// Create all our routes and set up logic within those routes where required.
+// get route -> index
 router.get("/", function(req, res) {
-    burgers.all(function(data) {
-      var hbsObject = {
-        cats: data
+  res.redirect("/burgers");
+});
+
+// Create all our routes and set up logic within those routes where required.
+router.get("/burgers", function(req, res) {
+    burgers.all(function(burgerData) {
+      var burgerObject = {
+        burger_data: burgerData
       };
-      console.log(hbsObject);
-      res.render("index", hbsObject);
+      console.log(burgerObject);
+      console.log(burgerData[0].devoured);
+      res.render("index", burgerObject);
     });
   });
   
-  router.post("/api/burgers", function(req, res) {
+  router.post('/api/burgers', function(req, res) {
     burgers.create(req.body.burgers, function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
   });
   
-  router.put("/api/burgers/:id", function(req, res) {
+  router.put('/api/burgers/:id', function(req, res) {
     var condition = "id = " + req.params.id;
   
     console.log("condition", condition);
   
-    cat.update({
+    burgers.update({
       sleepy: req.body.sleepy
     }, condition, function(result) {
       if (result.changedRows == 0) {

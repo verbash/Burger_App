@@ -8,9 +8,12 @@
         <div class="col s6 center-align card-panel burger-list teal lighten-5">
             <h5>Burgers I want to try?</h5>
         <ul id="burgersFalse">
-            {{#each cats}}
-                {{#unless sleepy}}
-                    {{> cats/cat-block sleep=true}}
+            <p>------</p>
+            {{#each burger_data}}
+                {{#unless this.devoured}}
+                    <p class="right-align">{{this.burger_name}}
+                    <button type="submit" class="waves-effect waves-light btn">Eat It!</button>
+                    </p>
                 {{/unless}}
             {{/each}}
         </ul>
@@ -18,9 +21,10 @@
         <div class="col s6 center-align card-panel burger-list teal lighten-5">
             <h5>Burgers I have eaten!</h5>
         <ul id="burgersTrue">
-            {{#each cats}}
-                {{#if sleepy}}
-                    {{> cats/cat-block sleep=false}}
+            <p>------</p>
+            {{#each burger_data}}
+                {{#if this.devoured}}
+                    <p>{{this.burger_name}}</p>
                 {{/if}}
             {{/each}}
         </ul>
