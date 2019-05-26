@@ -11,8 +11,10 @@
             <p>------</p>
             {{#each burger_data}}
                 {{#unless this.devoured}}
-                    <p class="right-align">{{this.burger_name}}
-                    <button type="submit" class="waves-effect waves-light btn">Eat It!</button>
+                    
+                        <p class="right-align">{{this.burger_name}}
+                        <button type="submit" value={{this.id}} class="eat-form waves-effect waves-light btn">Eat It!</button>
+                   
                     </p>
                 {{/unless}}
             {{/each}}
@@ -24,7 +26,10 @@
             <p>------</p>
             {{#each burger_data}}
                 {{#if this.devoured}}
-                    <p>{{this.burger_name}}</p>
+
+                        <p class="right-align">{{this.burger_name}}
+                        <button type="submit" value={{this.id}} class="unEat-form waves-effect waves-light btn">X</button>
+                   
                 {{/if}}
             {{/each}}
         </ul>
